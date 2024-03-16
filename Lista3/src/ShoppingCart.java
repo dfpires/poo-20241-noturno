@@ -41,6 +41,7 @@ public class ShoppingCart {
     // composição
     public void addCarItem(int id, int quantity, Product product){
         this.carItens.add(new CarItem(id, quantity, product));
+        calculateFinalPrice();
     }
 
     @Override
@@ -50,5 +51,12 @@ public class ShoppingCart {
                 ", totalPrice=" + totalPrice +
                 ", carItens=" + carItens +
                 '}';
+    }
+    private void calculateFinalPrice(){
+        this.totalPrice = 0;
+        for(CarItem ptr: carItens){ // percorre cada elemento do vetor
+            this.totalPrice +=
+                    ptr.getQuantity() * ptr.getProduct().getPrice();
+        }
     }
 }
