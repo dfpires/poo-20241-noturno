@@ -30,6 +30,6 @@ public class Assistente extends Funcionario {
 
     @Override
     public float calculaSalario(){
-        return super.calculaSalario() + this.horaExtra * 40;
+        return this.salario + this.horaExtra * 40;
     }
 }

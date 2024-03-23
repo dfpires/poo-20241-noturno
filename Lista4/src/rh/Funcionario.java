@@ -1,5 +1,5 @@
 package rh;
-public class Funcionario {
+public abstract class Funcionario {
     protected String nome, endereco, cpf;
     protected float salario;
 
@@ -55,7 +55,5 @@ public class Funcionario {
                 '}';
     }
 
-    public float calculaSalario(){
-        return this.salario;
-    }
+    public abstract float calculaSalario();
 }

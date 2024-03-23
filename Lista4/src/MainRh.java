@@ -33,5 +33,7 @@ public class MainRh {
     for(Funcionario obj: funcs){
         exibeDados(obj);
     }
+
+    // Funcionario teste = new Funcionario();
     }
 }

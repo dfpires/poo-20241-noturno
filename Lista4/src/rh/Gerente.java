@@ -22,6 +22,6 @@ public class Gerente extends Funcionario{
     }
     @Override
     public float calculaSalario() {
-        return super.calculaSalario() + this.bonus;
+        return this.salario + this.bonus;
     }
 }
