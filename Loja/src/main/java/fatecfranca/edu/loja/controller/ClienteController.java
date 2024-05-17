@@ -1,4 +1,5 @@
 package fatecfranca.edu.loja.controller;
+import fatecfranca.edu.loja.model.dto.ClienteDTO;
 import fatecfranca.edu.loja.model.entity.ClienteEntity;
 import fatecfranca.edu.loja.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,9 @@ public class ClienteController {
 
     @Autowired
     ClienteService injecao;
-    @PostMapping
-    public ClienteEntity insere(@RequestBody ClienteEntity cliente){
-        System.out.println("oi");
-        return injecao.insere(cliente);
+    @PostMapping // 2 e 5
+    public ClienteDTO insere(@RequestBody ClienteDTO clienteDTO){
+       return injecao.insere(clienteDTO);
 
     }
 }
