@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @Service
 public class ClienteService {
-
     // injeção de dependência
     @Autowired
     ClienteRepository injecao;
@@ -51,7 +50,7 @@ public class ClienteService {
     // converte uma lista de ClienteEntity em outra lista de ClienteDTO
     public List<ClienteDTO> converteEntities(List<ClienteEntity> listaEntities){
         // cria uma lista que vai guardar os ClienteDTOs
-        List<ClienteDTO> listaDTOs = new ArrayList<ClienteDTO>();
+        List<ClienteDTO> listaDTOs = new ArrayList<>();
         // percorre a lista de ClienteEntity
         for(ClienteEntity objEntity : listaEntities){
             // objEntity represente uma entity da lista
