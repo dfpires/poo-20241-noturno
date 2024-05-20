@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 @Table(name="cliente") // tabela com nome cliente
 public class ClienteEntity {
     @Id // chave primaria
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // gera automaticamente os valores
+    @GeneratedValue(strategy = GenerationType.AUTO) // gera automaticamente os valores
     private Long id;
     @Column(name="nome")
     private String nome;
