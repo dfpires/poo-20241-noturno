@@ -32,4 +32,14 @@ public class ClienteController {
     public String remove(@PathVariable Long id){
         return injecao.remove(id);
     }
+
+    @PutMapping
+    public List<ClienteDTO> tiraDebito(){
+        return injecao.tiraDebito();
+    }
+
+    @PatchMapping("/{id}")
+    public ClienteDTO atualizaPorId(@PathVariable Long id, @RequestBody ClienteDTO cliente){
+        return injecao.atualizaPorId(id, cliente);
+    }
 }

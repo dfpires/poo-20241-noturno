@@ -48,6 +48,36 @@ public class ClienteService {
         }
     }
 
+    // tornar todos os clientes não devedores (perdoar as dívidas)
+    // retornar todos os clientes sem estar devendo - List
+    public List<ClienteDTO> tiraDebito(){
+        // recupera todos os clientes do banco
+        List<ClienteEntity> clientes = injecao.findAll();
+        // altera cada cliente, colocando false na variável devedor
+        for(ClienteEntity obj: clientes){
+            // alterar o id do obj
+            if (obj.isDevedor()){
+                obj.setDevedor(false);
+                // salva o objeto alterado no banco de dados
+                injecao.save(obj);
+            }
+        }
+        return converteEntities(clientes);
+    }
+
+    // atualiza um cliente a partir de um id informado
+    public ClienteDTO atualizaPorId(Long id, ClienteDTO clienteDTO){
+        if (injecao.existsById(id)){ // cliente existe
+            clienteDTO.setId(id); // adiciona o id no cliente
+            // converte para Entity e atualiza no banco de dados
+            ClienteEntity aux = injecao.save(converteDTO(clienteDTO));
+            return converteEntity(aux); // converte para DTO
+        }
+        else {
+            return null;
+        }
+    }
+
     // converte uma lista de ClienteEntity em outra lista de ClienteDTO
     public List<ClienteDTO> converteEntities(List<ClienteEntity> listaEntities){
         // cria uma lista que vai guardar os ClienteDTOs
